@@ -30,7 +30,9 @@ export const Input = forwardRef<TextInput, InputProps>(
       <Container>
         <InputStyle
           ref={ref}
+          isError={!!error}
           placeholderTextColor={theme.COLORS.GRAY_400}
+          cursorColor={theme.COLORS.BLUE_LIGHT}
           {...rest}
         />
         {isPassword && (

@@ -16,8 +16,23 @@
       "@screens/*": [
         "./src/screens/*"
       ],
+      "@storage/*": [
+        "./src/storage/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
       "@theme/*": [
         "./src/theme/*"
+      ],
+      "@dtos/*": [
+        "./src/dtos/*"
       ],
       "@utils/*": [
         "./src/utils/*"

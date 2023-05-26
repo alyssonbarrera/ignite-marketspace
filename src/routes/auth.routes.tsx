@@ -1,6 +1,7 @@
-import theme from '@theme/index'
-import { SignIn } from '@screens/SignIn'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+import { SignIn } from '@screens/SignIn'
+import { SignUp } from '@screens/SignUp'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -9,15 +10,11 @@ export function AuthRoutes() {
     <Navigator
       screenOptions={{
         headerShown: false,
+        animation: 'slide_from_right',
       }}
     >
-      <Screen
-        name="signin"
-        component={SignIn}
-        options={{
-          statusBarColor: theme.COLORS.GRAY_600,
-        }}
-      />
+      <Screen name="signin" component={SignIn} />
+      <Screen name="signup" component={SignUp} />
     </Navigator>
   )
 }

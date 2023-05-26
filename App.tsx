@@ -1,5 +1,5 @@
 import theme from '@theme/index'
-import { StatusBar } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 import {
   useFonts,
   Karla_400Regular,
@@ -11,16 +11,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Loading } from '@components/Loading'
 
 import { Routes } from '@routes/index'
+import { AuthContextProvider } from '@contexts/AuthContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Karla_400Regular,
     Karla_700Bold,
   })
-
-  if (!fontsLoaded) {
-    return <Loading />
-  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -30,8 +27,10 @@ export default function App() {
           backgroundColor: theme.COLORS.GRAY_600,
         }}
       >
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" />
-        <Routes />
+        <StatusBar style="dark" backgroundColor={theme.COLORS.GRAY_600} />
+        <AuthContextProvider>
+          {!fontsLoaded ? <Loading /> : <Routes />}
+        </AuthContextProvider>
       </SafeAreaProvider>
     </ThemeProvider>
   )

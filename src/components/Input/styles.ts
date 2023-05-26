@@ -7,7 +7,7 @@ export const Container = styled.View`
   align-items: center;
 `
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput<{ isError: boolean }>`
   width: 100%;
   min-height: 45px;
   max-height: 45px;
@@ -19,6 +19,10 @@ export const Input = styled.TextInput`
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
   border-radius: 6px;
+
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.COLORS.RED_LIGHT : theme.COLORS.GRAY_700};
 `
 
 export const IconContainer = styled.TouchableOpacity`

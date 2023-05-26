@@ -25,6 +25,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Este app precisa de acesso às suas fotos para que você possa selecionar uma foto de perfil e fotos dos seus produtos"
+        }
+      ]
+    ]
   }
 }
