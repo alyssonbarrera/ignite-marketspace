@@ -1,8 +1,8 @@
 import { Avatar, ButtonIcon, Container, EditIcon, Placeholder } from './styles'
 
 type UserPhotoProps = {
-  onPress: () => void
-  preview: string | undefined
+  onPress?: () => void
+  preview?: string | undefined
 }
 
 export function UserPhoto({ onPress, preview }: UserPhotoProps) {

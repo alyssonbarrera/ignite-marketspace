@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import * as SecureStore from 'expo-secure-store'
 
 import { AUTH_TOKEN_STORAGE } from './storageConfig'
 
@@ -11,14 +11,14 @@ export async function storageSaveAuthToken({
   token,
   refreshToken,
 }: StorageAuthTokenProps): Promise<void> {
-  await AsyncStorage.setItem(
+  await SecureStore.setItemAsync(
     AUTH_TOKEN_STORAGE,
     JSON.stringify({ token, refreshToken }),
   )
 }
 
 export async function storageGetAuthToken(): Promise<StorageAuthTokenProps> {
-  const storage = await AsyncStorage.getItem(AUTH_TOKEN_STORAGE)
+  const storage = await SecureStore.getItemAsync(AUTH_TOKEN_STORAGE)
 
   const { token, refreshToken }: StorageAuthTokenProps = storage
     ? JSON.parse(storage)
@@ -28,5 +28,5 @@ export async function storageGetAuthToken(): Promise<StorageAuthTokenProps> {
 }
 
 export async function storageRemoveAuthToken(): Promise<void> {
-  await AsyncStorage.removeItem(AUTH_TOKEN_STORAGE)
+  await SecureStore.deleteItemAsync(AUTH_TOKEN_STORAGE)
 }
