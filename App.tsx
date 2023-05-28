@@ -1,3 +1,5 @@
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+
 import theme from '@theme/index'
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -12,6 +14,7 @@ import { Loading } from '@components/Loading'
 
 import { Routes } from '@routes/index'
 import { AuthContextProvider } from '@contexts/AuthContext'
+import { FilterContextProvider } from '@contexts/FilterContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,10 +30,14 @@ export default function App() {
           backgroundColor: theme.COLORS.GRAY_600,
         }}
       >
-        <StatusBar style="dark" backgroundColor={theme.COLORS.GRAY_600} />
-        <AuthContextProvider>
-          {!fontsLoaded ? <Loading /> : <Routes />}
-        </AuthContextProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <StatusBar style="dark" backgroundColor={theme.COLORS.GRAY_600} />
+          <AuthContextProvider>
+            <FilterContextProvider>
+              {!fontsLoaded ? <Loading /> : <Routes />}
+            </FilterContextProvider>
+          </AuthContextProvider>
+        </GestureHandlerRootView>
       </SafeAreaProvider>
     </ThemeProvider>
   )

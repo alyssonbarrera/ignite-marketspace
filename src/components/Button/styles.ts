@@ -6,7 +6,7 @@ type ButtonProps = {
 }
 
 export const Container = styled.TouchableOpacity`
-  width: 100%;
+  flex: 1;
   min-height: 42px;
   max-height: 42px;
   border-radius: 6px;

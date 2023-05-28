@@ -27,13 +27,18 @@ import {
   Text,
 } from './styles'
 
+import { AppNavigatorRoutesProps } from '@routes/app.routes'
+
 import { Card } from '@components/Card'
 import { HomeHeader } from '@components/HomeHeader'
-import { AppNavigatorRoutesProps } from '@routes/app.routes'
+import { useFilter } from '@hooks/useFilter'
 
 export function Home() {
   const insets = useSafeAreaInsets()
   const navigation = useNavigation<AppNavigatorRoutesProps>()
+
+  const { handleModal } = useFilter()
+
   const [search, setSearch] = useState<string>('')
 
   function handleSearch() {
@@ -79,7 +84,7 @@ export function Home() {
                 <MagnifyingGlass size={20} color={theme.COLORS.GRAY_200} />
               </InputIcon>
               <InputIconsDivider />
-              <InputIcon>
+              <InputIcon onPress={() => handleModal(true)}>
                 <Sliders size={20} color={theme.COLORS.GRAY_200} />
               </InputIcon>
             </InputIconsContainer>
