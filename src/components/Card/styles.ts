@@ -1,3 +1,4 @@
+import { TouchableOpacity } from 'react-native'
 import styled, { DefaultTheme } from 'styled-components/native'
 
 type TagProps = {
@@ -5,7 +6,9 @@ type TagProps = {
   variant?: 'new' | 'used'
 }
 
-export const Container = styled.View`
+export const Container = styled(TouchableOpacity).attrs({
+  activeOpacity: 0.8,
+})`
   flex-shrink: 1;
   max-width: 168px;
 `

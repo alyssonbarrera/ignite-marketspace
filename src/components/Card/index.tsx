@@ -1,3 +1,4 @@
+import { TouchableOpacityProps } from 'react-native'
 import {
   Container,
   Dollar,
@@ -9,9 +10,11 @@ import {
   Title,
 } from './styles'
 
-export function Card() {
+type CardProps = TouchableOpacityProps
+
+export function Card({ ...rest }: CardProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <TagContainer variant="new">
         <Tag>Novo</Tag>
       </TagContainer>

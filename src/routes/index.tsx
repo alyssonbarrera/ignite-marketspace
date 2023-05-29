@@ -1,6 +1,6 @@
 import { Modal } from '@components/Modal'
 import { AppRoutes } from './app.routes'
-import { AuthRoutes } from './auth.routes'
+// import { AuthRoutes } from './auth.routes'
 import { NavigationContainer } from '@react-navigation/native'
 
 export function Routes() {

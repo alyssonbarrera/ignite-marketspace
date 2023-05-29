@@ -91,7 +91,9 @@ export function Home() {
           </InputContainer>
 
           <CardsContainer>
-            <Card />
+            <Card
+              onPress={() => navigation.navigate('addetails', { id: '1' })}
+            />
             <Card />
             <Card />
             <Card />

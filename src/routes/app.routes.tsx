@@ -8,10 +8,14 @@ import {
 
 import { Home } from '@screens/Home'
 import { MyAds } from '@screens/MyAds'
+import { AdDetails } from '@screens/AdDetails'
 
 type AppRoutesProps = {
   home: undefined
   myads: undefined
+  addetails: {
+    id: string
+  }
   signout: undefined
 }
 
@@ -65,6 +69,19 @@ export function AppRoutes() {
               weight={focused ? 'bold' : 'regular'}
             />
           ),
+        }}
+      />
+
+      <Screen
+        name="addetails"
+        component={AdDetails}
+        options={{
+          tabBarStyle: {
+            display: 'none',
+          },
+          tabBarItemStyle: {
+            display: 'none',
+          },
         }}
       />
 
